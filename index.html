@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dahlia - Recursos contra la Violencia de Género</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fbbdbd;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff9f9f;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #fff;
+        }
+
+        .container {
+            background-image: url("img/logo dahlia.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.527);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #e74361;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d4304f;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #e74361;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #d4304f;
+        }
+
+        /* Estilo adicional para mejorar la legibilidad */
+        input,
+        textarea {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333; /* Cambiar el color del texto */
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dahlia - Recursos contra la Violencia de Género</h1>
+    </header>
+    <div class="container">
+        <button onclick="window.location.href='cita.html'">Solicitar una cita física</button>
+
+        <!-- Formulario de recogida de datos -->
+        <h2>Formulario de Recogida de Datos</h2>
+        <form id="formulario" onsubmit="return validarFormulario()">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+
+            <label for="apellido">Apellidos:</label>
+            <input type="text" id="apellido" name="apellido" required><br>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br>
+
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+        <div id="mensaje-exito" class="success-message" style="display: none;">
+            ¡Formulario enviado con éxito!
+        </div>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var email = document.getElementById("email").value;
+            var telefono = document.getElementById("telefono").value;
+
+            if (nombre.trim() === "" || apellido.trim() === "" || email.trim() === "" || telefono.trim() === "") {
+                alert("Por favor, complete todos los campos.");
+                return false;
+            }
+
+            mostrarMensajeExito();
+            return false;
+        }
+
+        function mostrarMensajeExito() {
+            var mensajeExito = document.getElementById("mensaje-exito");
+            mensajeExito.style.display = "block";
+            setTimeout(function() {
+                mensajeExito.style.display = "none";
+            }, 3000); // Ocultar el mensaje después de 3 segundos
+        }
+    </script>
+</body>
+</html>

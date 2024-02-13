@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Cita - Dahlia</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fbbdbd;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff9f9f;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #fff;
+        }
+
+        #verificacion {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #volverInicio {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #e74361;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        #volverInicio:hover {
+            background-color: #d4304f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificación de Cita - Dahlia</h1>
+        <img src="img/logo dahlia.png" width="200px" alt="">
+    </header>
+    <div id="verificacion">
+        <script>
+            // Obtener los valores del almacenamiento local
+            var nombre = localStorage.getItem("nombre");
+            var apellido = localStorage.getItem("apellido");
+            var email = localStorage.getItem("email");
+            var telefono = localStorage.getItem("telefono");
+            var fecha = localStorage.getItem("fecha");
+            var mensaje = localStorage.getItem("mensaje");
+    
+            // Mostrar los valores en la página
+            var verificacionDiv = document.getElementById("verificacion");
+            verificacionDiv.innerHTML = `
+                <p>Nombre: ${nombre} ${apellido}</p>
+                <p>Correo electrónico: ${email}</p>
+                <p>Teléfono: ${telefono}</p>
+                <p>Fecha preferida: ${fecha}</p>
+                <p>Mensaje adicional: ${mensaje}</p>
+            `;
+        </script>
+        <p>¡Su cita ha sido programada con éxito!</p>
+        <p>Nos pondremos en contacto con usted para confirmar los detalles.</p>
+        <a href="index.html" id="volverInicio">Volver al inicio</a>
+    </div>
+    
+</body>
+</html>
